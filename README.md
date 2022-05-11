@@ -8,7 +8,7 @@ I am a softare student working on full stack applications, this is a gist I've m
 
 This regex expression will check for hex values. Below each part of the expression is broken down in depth.
 
-> Matching a Hex Value: `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`
+### Matching a Hex Value: `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`
 
 ## Table of Contents
 
@@ -27,12 +27,12 @@ This regex expression will check for hex values. Below each part of the expressi
 
 In regular expressions different anchors mean different things. Anchors do not match any characters, they match a position before or after characters. For example...
 
-> `console.log(/b$/.test('bob'));`
+`console.log(/b$/.test('bob'));`
 
 would return 'true' because the string 'bob' ends with a 'b'.
 On the other hand, '^' matches the beginning of the text.
 
-> `console.log(/^R/.test('Bob'));`
+`console.log(/^R/.test('Bob'));`
 
 would return 'false' because Bob does not start with a B.
 
@@ -42,15 +42,15 @@ The ^ anchor signifies the string that begines with the characters that follow.
 
 Quantifiers indicate numbers of characters or expressions to match.For Example.
 
-> `o{2}`
+`o{2}`
 
 looks for exactly 3 occurences of the previous item 'a'. for example the word 'food' would be a match because it has two 'o's next to eachother, the word 'Top' would not match. Another type of quantifiers are known as the 'greedy' quantifiers. They attempt to match as much of the string as possible UNLESS you add a ? after. IF this is added the quanitfier will stop as soon as it finds a match. For example...
 
-> `/<.\*>/ will match '<hello> <world>'`
+`/<.\*>/ will match '<hello> <world>'`
 
 with a question mark added...
 
-> `/<.\*?>/ will only match '<hello>' because it stops after one match.`
+`/<.\*?>/ will only match '<hello>' because it stops after one match.`
 
 In hex value matcher the quantifier is the '?' indicating that the '#' is optional. it is optional for the '#' to match.
 
@@ -61,7 +61,7 @@ For example in the hex value matches the '-' groups the characters inside
 
 for example
 
-> `[xyz] | [x-z]`
+`[xyz] | [x-z]`
 
 would both match.
 
@@ -69,19 +69,19 @@ would both match.
 
 Bracket expressions use
 
-> `[ ]`
+`[ ]`
 
 to indicate a range of characters that we want to match. for example
 in the above expression the bracket expressions are looking for either the letters a-f or numbers 0-9.
 
-> `[a-f0-9]`
+`[a-f0-9]`
 
 ### Character Classes
 
 a character class is a bracket expression that matches any of the characters inside the brackets.
 In the Hex value matcher it is used to check numbers and letters between specific ranges. For example...
 
-> `[a-f0-9]`
+`[a-f0-9]`
 
 is looking for the letters 'a' through 'f' and the numbers '0' through '9'.
 
@@ -89,12 +89,12 @@ is looking for the letters 'a' through 'f' and the numbers '0' through '9'.
 
 the | operater means 'either/or' as far as matching values is concerned. Inside a group it will act as an or between other matching conditions. For example
 
-> ` x|y`
+` x|y`
 
 would match either 'x' or 'y'.
 In the hex value matcher the '|' operator says that if either of the two conditions...
 
-> `/^#?([a-f0-9]{6} or [a-f0-9]{3})$/`
+`/^#?([a-f0-9]{6} or [a-f0-9]{3})$/`
 
 are met, that item will be a match for this statement.
 
@@ -102,7 +102,7 @@ are met, that item will be a match for this statement.
 
 Regular expressions can use flags that impact the search. There are only 6 of them in JavaScript. for example.
 
-> `?nO matches 'no'`
+`?nO matches 'no'`
 
 where if would not match were the flag not there.
 
